@@ -8,13 +8,13 @@ module Razorpay
   class Request
     include HTTParty
 
-    def initialize(entity_name)
+    def initialize(entity_name,auth = Razorpay.auth)
       self.class.base_uri(Razorpay::BASE_URI)
       @entity_name = entity_name
+      @auth = auth
     end
 
-    def fetch(id, auth = Razorpay.auth)
-      @auth = auth
+    def fetch(id)
       request :get, "/#{@entity_name}/#{id}"
     end
 

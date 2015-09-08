@@ -11,11 +11,12 @@ module Razorpay
     attr_accessor :auth
 
     def self.request
-      Razorpay::Request.new('payments')
+      Razorpay::Request.new('payments',auth)
     end
 
     def self.fetch(id, auth)
-      request.fetch id, auth
+      self.auth = auth
+      request.fetch id
     end
 
     def self.all(options = {})
