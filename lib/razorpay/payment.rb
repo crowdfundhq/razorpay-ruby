@@ -11,7 +11,7 @@ module Razorpay
     attr_accessor :auth
 
     def self.request
-      Razorpay::Request.new('payments',auth)
+      Razorpay::Request.new('payments',self.auth)
     end
 
     def self.fetch(id, auth)
