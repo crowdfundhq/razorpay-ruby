@@ -7,7 +7,7 @@ module Razorpay
   class Refund < Entity
     def initialize(data)
       super
-      @request = Razorpay::Request.new("payments/#{payment_id}/refunds")
+      @request = Razorpay::Request.new("payments/#{payment_id}/refunds", @auth)
     end
 
     def all(options = {})
@@ -15,7 +15,8 @@ module Razorpay
       @request.all options
     end
 
-    def fetch(id)
+    def fetch(id, auth)
+      @auth = auth
       @request.fetch id
     end
   end
