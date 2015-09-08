@@ -7,12 +7,15 @@ module Razorpay
   # and is used to interact with Payments, the most
   # common type of transactions
   class Payment < Entity
+
+    attr_accessor :auth
+
     def self.request
       Razorpay::Request.new('payments')
     end
 
-    def self.fetch(id)
-      request.fetch id
+    def self.fetch(id, auth)
+      request.fetch id, auth
     end
 
     def self.all(options = {})

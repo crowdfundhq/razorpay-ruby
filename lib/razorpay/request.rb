@@ -13,7 +13,8 @@ module Razorpay
       @entity_name = entity_name
     end
 
-    def fetch(id)
+    def fetch(id, auth = Razorpay.auth)
+      @auth = auth
       request :get, "/#{@entity_name}/#{id}"
     end
 
@@ -28,9 +29,9 @@ module Razorpay
     def request(method, url, data = {})
       case method
       when :get
-        create_instance self.class.send(method, url, query: data, basic_auth: Razorpay.auth)
+        create_instance self.class.send(method, url, query: data, basic_auth: auth)
       when :post
-        create_instance self.class.send(method, url, body:  data, basic_auth: Razorpay.auth)
+        create_instance self.class.send(method, url, body:  data, basic_auth: auth)
       end
     end
 
