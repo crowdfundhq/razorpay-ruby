@@ -13,14 +13,14 @@ module Razorpay
     # This method fakes attr_reader, but uses
     # the @attributes hash as the source, instead of
     # instance variables
-    def method_missing(name)
-      name = name.to_s
-      if @attributes.key?(name)
-        @attributes[name]
-      else
-        fail NameError, "No such data member: #{name}"
-      end
-    end
+    # def method_missing(name)
+    #   name = name.to_s
+    #   if @attributes.key?(name)
+    #     @attributes[name]
+    #   else
+    #     fail NameError, "No such data member: #{name}"
+    #   end
+    # end
 
     # Public: Convert the Entity object to JSON
     # Returns the JSON representation of the Entity (as a string)
