@@ -30,11 +30,11 @@ module Razorpay
       puts "Request"
       case method
       when :get
-        create_instance self.class.send(method, url, query: data, basic_auth: @auth)
+        instance = create_instance self.class.send(method, url, query: data, basic_auth: @auth)
       when :post
-        create_instance self.class.send(method, url, body:  data, basic_auth: @auth)
+        instance =create_instance self.class.send(method, url, body:  data, basic_auth: @auth)
       end
-      puts "Done"
+      instance
     end
 
     # Recursively builds entity instances
