@@ -27,7 +27,6 @@ module Razorpay
     end
 
     def request(method, url, data = {})
-      puts "Request"
       case method
       when :get
         create_instance self.class.send(method, url, query: data, basic_auth: @auth)
@@ -48,10 +47,8 @@ module Razorpay
       # There must be a top level entity
       # This is either one of payment, refund, or collection at present
       class_name = response['entity'].capitalize
-      puts class_name
       begin
         klass = Razorpay.const_get class_name
-        puts klass.inspect
       rescue NameError
         # Use Entity class if we don't find any
         klass = Razorpay::Entity
