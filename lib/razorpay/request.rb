@@ -50,6 +50,7 @@ module Razorpay
       class_name = response['entity'].capitalize
       begin
         klass = Razorpay.const_get class_name
+        puts klass.inspect
       rescue NameError
         # Use Entity class if we don't find any
         klass = Razorpay::Entity
