@@ -34,6 +34,7 @@ module Razorpay
       when :post
         create_instance self.class.send(method, url, body:  data, basic_auth: @auth)
       end
+      puts "Done"
     end
 
     # Recursively builds entity instances
