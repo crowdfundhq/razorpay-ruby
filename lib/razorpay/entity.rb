@@ -7,7 +7,6 @@ module Razorpay
   class Entity
     def initialize(attributes)
       @attributes = attributes
-      puts attributes
     end
 
     # This method fakes attr_reader, but uses
