@@ -27,6 +27,7 @@ module Razorpay
     end
 
     def request(method, url, data = {})
+      puts "Request"
       case method
       when :get
         create_instance self.class.send(method, url, query: data, basic_auth: @auth)
@@ -38,6 +39,7 @@ module Razorpay
     # Recursively builds entity instances
     # out of all hashes in the response object
     def create_instance(res)
+      puts res
       response = res.parsed_response
 
       # if there was an error, throw it
