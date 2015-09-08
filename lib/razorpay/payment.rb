@@ -8,16 +8,15 @@ module Razorpay
   # common type of transactions
   class Payment < Entity
 
-    attr_accessor :auth
-
     def self.request
-      Razorpay::Request.new('payments',self.auth)
+      Razorpay::Request.new('payments',@auth)
     end
 
     def self.fetch(id, auth)
       puts "fetch"
-      self.auth = auth
       puts auth
+      @auth = auth
+
       request.fetch id
     end
 
