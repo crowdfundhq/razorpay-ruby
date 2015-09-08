@@ -8,10 +8,10 @@ module Razorpay
   class Request
     include HTTParty
 
-    def initialize(entity_name,auth = Razorpay.auth)
+    def initialize(entity_name,auth)
       self.class.base_uri(Razorpay::BASE_URI)
       @entity_name = entity_name
-      @auth = auth
+      @auth = auth.present? ? auth : Razorpay.auth
       puts auth
       puts entity_name
     end
