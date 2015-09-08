@@ -12,6 +12,8 @@ module Razorpay
       self.class.base_uri(Razorpay::BASE_URI)
       @entity_name = entity_name
       @auth = auth
+      puts auth
+      puts entity_name
     end
 
     def fetch(id)
