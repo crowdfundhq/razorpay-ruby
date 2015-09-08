@@ -15,6 +15,7 @@ module Razorpay
     end
 
     def self.fetch(id, auth)
+      puts "fetch"
       self.auth = auth
       puts auth
       request.fetch id

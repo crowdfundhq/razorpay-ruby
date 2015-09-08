@@ -17,6 +17,7 @@ module Razorpay
     end
 
     def fetch(id)
+       puts "request"
       request :get, "/#{@entity_name}/#{id}"
     end
 
