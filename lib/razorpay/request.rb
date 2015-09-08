@@ -39,7 +39,7 @@ module Razorpay
     # Recursively builds entity instances
     # out of all hashes in the response object
     def create_instance(res)
-      puts res
+
       response = res.parsed_response
 
       # if there was an error, throw it
@@ -48,6 +48,7 @@ module Razorpay
       # There must be a top level entity
       # This is either one of payment, refund, or collection at present
       class_name = response['entity'].capitalize
+      puts class_name
       begin
         klass = Razorpay.const_get class_name
         puts klass.inspect
